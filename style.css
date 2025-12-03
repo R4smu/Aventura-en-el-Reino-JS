@@ -1,0 +1,256 @@
+:root {
+    font-size: 14px; 
+
+    --color-primario: #A7A6FF;
+    --color-secundario: #E1A8FF;
+    --color-acento: #FFF30A;
+    --color-p-texto: #2520C7;
+    --color-s-texto: #7615A3;
+    --color-a-texto: #706D3A;
+    --color-seleccionado: #3cb23c;
+}
+
+@font-face {
+    font-family: 'Camei'; 
+    src: url('./recursos/fuentes/Camei-ExtrudeRight_demo.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'YellowSwamp'; 
+    src: url('./recursos/fuentes/YELLS___.TTF') format('truetype');
+}
+
+h1, h2, span {
+    font-family: 'Camei';
+}
+
+p, .boton-principal {
+    font-family: 'YellowSwamp';
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--color-primario);
+}
+
+#juego {
+    width: 100%;
+    max-width: 50rem;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: var(--color-secundario); 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.escena {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.oculta {
+    display: none;
+}
+
+.titulo-escena {
+    color: var(--color-s-texto);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.boton-principal, .producto-card, .enemigo-card, .inventario-grid > div, .combatiente img { 
+    transition: all 0.3s ease-in-out; 
+}
+
+.boton-principal:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4); 
+    transform: scale(1.05); 
+}
+
+.producto-card:hover, .enemigo-card:hover {
+    cursor: pointer;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+    transform: translateY(-0.2rem); 
+}
+
+.inventario-grid > div:hover {
+    cursor: pointer;
+    transform: scale(1.2); 
+    z-index: 10; 
+}
+
+.boton-principal {
+    background-color: var(--color-acento);
+    color: var(--color-a-texto);
+    padding: 0.5rem 1.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    text-transform: uppercase;
+    margin: auto;
+    flex-shrink: 0;
+}
+
+
+.header-jugador {
+    height: 7rem;
+    display: flex;
+    margin: 0.25rem;
+    align-items: flex-end;
+    flex-shrink: 0;
+}
+
+.header-jugador img {
+    width: 7.5rem;
+    height: 7.5rem;
+    position: static; 
+    border-radius: 5px; 
+    margin-right: 1rem; 
+}
+
+.header-jugador h1 {
+    margin: 0;
+    flex-grow: 1; 
+    text-align: right; 
+    font-size: 1.5rem;
+    position: static;
+}
+
+.datos-jugador-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--color-primario);
+    height: 12rem;
+    flex-shrink: 0;
+}
+
+.dato-box {
+    background-color: var(--color-secundario); 
+    color: var(--color-p-texto);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dato-box span:first-child { 
+    font-size: 0.7rem; 
+    color: var(--color-s-texto);
+}
+
+p {
+    color: var(--color-p-texto);
+}
+
+#productos-container, #enemigos-container {
+    flex-grow: 1;
+    background-color: var(--color-primario);
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+    
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1rem;
+}
+
+#enemigos-container {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.producto-card, .enemigo-card {
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--color-secundario);
+    border: 2px solid var(--color-p-texto);
+    padding: 0.5rem;
+}
+
+.producto-card.seleccionado {
+    background-color: var(--color-seleccionado);
+}
+
+.producto-card img, .enemigo-card img {
+    max-width: 80%;
+    max-height: 5rem;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.producto-card span, .enemigo-card span {
+    font-size: 0.9rem;
+    color: var(--color-p-texto);
+    font-weight: bold;
+}
+
+.inventario-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.3rem;
+    width: 100%;
+    background-color: var(--color-primario);
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.inventario-grid > div {
+    height: 7.5rem; 
+    background-color: transparent; 
+    border: 2px solid var(--color-s-texto); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inventario-grid img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.combate-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--color-primario);
+    height: 8rem;
+    flex-shrink: 0;
+}
+
+.combatiente img {
+    width: 9rem;
+    height: 9rem;
+    object-fit: contain;
+}
+
+.vs-text {
+    font-size: 2rem;
+    color: var(--color-acento);
+    font-weight: bold;
+}
+
+.resultado-final-combate {
+    text-align: center;
+    color: var(--color-acento);
+}
+
+.mensaje-final {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-acento);
+    margin: 2rem 0;
+}

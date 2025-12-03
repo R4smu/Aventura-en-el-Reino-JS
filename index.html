@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura en el Reino de JS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="juego">
+
+    <div class="escena" data-escena="inicio">
+        <div class="header-jugador">
+            <img id="jugador-avatar" src="recursos/img/chico.png" alt="Avatar del Jugador">
+            <h1 class="titulo-escena">Chico nube</h1>
+        </div>
+
+        <div class="datos-jugador-container">
+            <div class="dato-box">
+                <span>Ataque:</span>
+                <span id="stat-ataque">0</span>
+            </div>
+            
+            <div class="dato-box">
+                <span>Defensa:</span>
+                <span id="stat-defensa">0</span>
+            </div>
+            
+            <div class="dato-box">
+                <span>Vida:</span>
+                <span id="stat-vida">100</span>
+            </div>
+ 
+            <div class="dato-box">
+                <span>Puntos:</span>
+                <span id="stat-puntos">0</span>
+            </div>
+        </div>          
+        
+    <button class="boton-principal" id="btn-continuar-inicio">Continuar</button>
+    
+    <div class="inventario-grid" id="inventario-inicio">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+    </div>
+    
+    </div>
+
+    <div class="escena oculta" data-escena="mercado">
+        <h1 class="titulo-escena">Tienda Troposfera</h1>
+
+        <div id="productos-container"></div>
+
+        <button class="boton-principal" id="btn-comprar">Comprar</button>
+
+        <div class="inventario-grid" id="inventario-cesta">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+
+    <div class="escena oculta" data-escena="enemigos">
+        <h1 class="titulo-escena">Enemigos</h1>
+
+        <div id="enemigos-container"></div>
+
+        <button class="boton-principal" id="btn-continuar-enemigos">Continuar</button>
+        <div class="inventario-grid" id="inventario-enemigos">
+            <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+    </div>
+
+    <div class="escena oculta" data-escena="combates">
+        <h1 class="titulo-escena">Combates</h1>
+
+        <div class="combate-area">
+            <div class="combatiente jugador-img">
+                <img src="recursos/img/chico.png" alt="Jugador">
+            </div>
+            
+            <span class="vs-text">VS</span>
+            
+            <div class="combatiente enemigo-img">
+                <img id="enemigo-combate-avatar" src="" alt="Enemigo">
+            </div>
+        </div>
+
+        <div class="resultado-final-combate">
+            <h2 id="ganador-combate">Ganador: Chico nube</h2>
+            <p>Puntos ganados: <span id="puntos-ganados-combate">109</span></p>
+            <p>Vida restante: <span id="vida-restante-combate">100</span></p> 
+        </div>
+
+        <button class="boton-principal" id="btn-continuar-combate">Continuar</button>
+
+        <div class="inventario-grid" id="inventario-batalla"></div>
+    </div>
+
+    <div class="escena oculta" data-escena="final">
+        <h1 class="titulo-escena">Resultado final</h1>
+        <p id="mensaje-rango" class="mensaje-final"></p>
+        <p class="mensaje-final">Puntos totales: <span id="puntos-finales">654</span></p>
+
+        <button class="boton-principal" id="btn-reiniciar">Reiniciar</button>
+
+        <div class="inventario-grid" id="inventario-final"></div>
+    </div>
+
+</div>
+
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>
